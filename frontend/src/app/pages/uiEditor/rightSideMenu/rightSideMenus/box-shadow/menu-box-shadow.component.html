@@ -1,0 +1,18 @@
+<dropdown-menu	width="49%" #shadowTypeSelect labelName="shadowType" (change)="setShadow(shadowTypeSelect.value+'')"
+								[dataSource]="['noShadow', 'miniShadow', 'normalShadow']"></dropdown-menu>
+<!--  -->
+
+<sliderMenu label="{{'xDistance' | translate }}" (change)="distanceX = $event" [inputValue]="distanceX" [min]="0" [max]="100" [step]="1"></sliderMenu>
+
+<sliderMenu label="{{'yDistance' | translate }}" (change)="distanceY = $event" [inputValue]="distanceY" [min]="0" [max]="100" [step]="1"></sliderMenu>
+
+<sliderMenu label="{{'shadowRadius' | translate }}" (change)="shadowRadius = $event" [inputValue]="shadowRadius" [min]="0" [max]="100" [step]="1"></sliderMenu>
+
+<div style="width: 100%; display: flex; gap: 15px; align-items: center;">
+  <label translate>shadowColor</label>
+  <input
+    #color
+    type="color"
+    [value]="shadowColor ?? '#000000'"
+    (input)="shadowColor = color.value">
+</div>

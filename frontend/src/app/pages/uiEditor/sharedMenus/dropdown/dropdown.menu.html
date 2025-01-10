@@ -1,0 +1,13 @@
+<div [style]="'width: {{width}}; margin-top: 15px;'">
+
+	<label translate>rightMenu.{{propName || labelName}}</label>
+	<ejs-dropdownlist #select
+		(ngModel)="value"
+		(change)="setProp(propName, select.value+'', propSecondValue);
+							change.emit(select.value+'')"
+		[value]="uiEditorService.selectedObjects[0]?.element ? uiEditorService.selectedObjects[0]?.element['$'+propName] : ''"
+		[dataSource]="dataSource"
+	>
+	</ejs-dropdownlist>
+
+</div>

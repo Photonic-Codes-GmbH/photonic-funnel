@@ -1,0 +1,73 @@
+<div style="margin-top: 13px;">
+
+	<div class="horizontalMenu" style="margin-bottom: 10px;">
+		<b translate>rightMenu.layoutOptions</b>
+	</div>
+
+	<div class="horizontalMenu">
+
+		<toggle-menu	#overflowToggle propName="overflow" shortName="Overflow hidden?" [isCss]="true"
+									checkedValue="hidden" secondValue="visible"></toggle-menu>
+
+	</div>
+</div>
+
+<!-- Anordnung -->
+<div style="margin-top: 13px;">
+
+	<div class="horizontalMenu" style="margin-bottom: 10px;">
+		<b translate>rightMenu.arrangement</b>
+	</div>
+
+	<div class="horizontalMenu">
+
+		<toggle-menu	#columnToggle propName="flex-direction" shortName="flexDirection" [isCss]="true"
+									checkedValue="column" secondValue="row"></toggle-menu>
+
+		<!-- flex-wrap -->
+		<div style="width: 49%">
+
+			<toggle-menu	#wrapToggle propName="flex-wrap" shortName="Wrap?" [isCss]="true"
+										checkedValue="wrap" secondValue="nowrap"></toggle-menu>
+
+		</div>
+	</div>
+
+	<div style="display: flex; justify-content: space-between; margin-top: 20px;"><!-- HorizontalMenu -->
+
+		<!-- align-items -->
+		<div style="width: 49%" [ngStyle]="{order: uiEditorService.selectedObjects[0]?.$flexDirection == 'column' ? '2' : '1'}">
+			<alignItemsMenu></alignItemsMenu>
+		</div>
+
+		<!-- justify-content -->
+		<div appearance="fill" style="width: 49%"
+				 [ngStyle]="{order: uiEditorService.selectedObjects[0]?.$flexDirection == 'column' ? '1' : '2'}">
+			<justifyContentMenu></justifyContentMenu>
+		</div>
+	</div>
+
+	<!-- Gap -->
+	<dropdown-menu width="49%" [isCss]="true" propName="gap" propSecondValue="rem"
+		[dataSource]='["0", "0.25", "0.5", "0.75", "1", "1.25", "1.5", "1.75", "2", "2.25", "2.5", "2.75", "3"]'>
+	</dropdown-menu>
+
+	<!-- Background Color -->
+	<app-menu-background></app-menu-background>
+
+	<!--  BORDER  -->
+	<app-menu-border></app-menu-border>
+	<app-menu-box-shadow></app-menu-box-shadow>
+
+	<!-- Cursor -->
+	<dropdown-menu width="49%" [isCss]="true" propName="cursor"
+						[dataSource]='[ "pointer", "alias", "all-scroll", "auto", "cell", "col-resize", "context-menu", "copy", "crosshair", "default",
+														"e-resize", "ew-resize", "grab", "grabbing", "help", "move", "n-resize", "ne-resize", "nesw-resize", "ns-resize",
+														"nw-resize", "nwse-resize", "no-drop", "none", "not-allowed", "progress", "row-resize", "s-resize", "se-resize",
+														"sw-resize", "text", "url", "w-resize", "wait", "zoom-in", "zoom-out"]'>
+	</dropdown-menu>
+
+	<!-- Pages -->
+	<!-- <pageRouting></pageRouting> -->
+</div>
+<!-- Ende Anordnung -->

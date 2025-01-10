@@ -1,0 +1,96 @@
+<!-- Seiten einzeln eingeben? -->
+<div class="horizontalMenu">
+	<toggle-menu #spacingSplitToggle propName="spacingSplit" [renderOnlyOuter]="true"></toggle-menu>
+</div>
+
+<div class="horizontalMenu" [ngStyle]="{'display': !spacingSplitToggle.checked ? 'flex': 'none'}">
+
+	<!-- margin -->
+	<menu-unit-input
+		style="display: flex; width: 49%"
+		[width]="'100%'"
+		[name]="'margin'"
+		[renderOnlyOuter]="true"
+	></menu-unit-input>
+
+	<!-- padding -->
+	<menu-unit-input
+		style="display: flex; width: 49%"
+		[width]="'100%'"
+		[name]="'padding'"
+	></menu-unit-input>
+
+</div>
+
+<div [ngStyle]="{'display': spacingSplitToggle.checked ? 'flex': 'none'}" style="flex-direction: column;">
+
+	<!-- margin -->
+	<div>
+		<p style="margin-block-end: 0;">Margin:</p>
+		<div class="horizontalMenu">
+			<menu-unit-input
+				style="display: flex; width: 49%"
+				[width]="'100%'"
+				[name]="'margin-top'"
+				[shortName]="'top'"
+				[renderOnlyOuter]="true"
+			></menu-unit-input>
+			<menu-unit-input
+				style="display: flex; width: 49%"
+				[width]="'100%'"
+				[name]="'margin-right'"
+				[shortName]="'right'"
+				[renderOnlyOuter]="true"
+			></menu-unit-input>
+		</div>
+		<div class="horizontalMenu">
+			<menu-unit-input
+				style="display: flex; width: 49%"
+				[width]="'100%'"
+				[name]="'margin-bottom'"
+				[shortName]="'bottom'"
+				[renderOnlyOuter]="true"
+			></menu-unit-input>
+			<menu-unit-input
+				style="display: flex; width: 49%"
+				[width]="'100%'"
+				[name]="'margin-left'"
+				[shortName]="'left'"
+				[renderOnlyOuter]="true"
+			></menu-unit-input>
+		</div>
+	</div>
+
+	<!-- padding -->
+	<div>
+		<p style="margin-block-end: 0;">Padding:</p>
+		<div class="horizontalMenu">
+			<menu-unit-input
+				style="display: flex; width: 49%"
+				[width]="'100%'"
+				[name]="'padding-top'"
+				[shortName]="'top'"
+			></menu-unit-input>
+			<menu-unit-input
+				style="display: flex; width: 49%"
+				[width]="'100%'"
+				[name]="'padding-right'"
+				[shortName]="'right'"
+			></menu-unit-input>
+		</div>
+		<div class="horizontalMenu">
+			<menu-unit-input
+				style="display: flex; width: 49%"
+				[width]="'100%'"
+				[name]="'padding-bottom'"
+				[shortName]="'bottom'"
+			></menu-unit-input>
+			<menu-unit-input
+				style="display: flex; width: 49%"
+				[width]="'100%'"
+				[name]="'padding-left'"
+				[shortName]="'left'"
+			></menu-unit-input>
+		</div>
+	</div>
+</div>

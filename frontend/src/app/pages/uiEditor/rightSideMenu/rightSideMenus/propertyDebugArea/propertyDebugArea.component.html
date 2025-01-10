@@ -1,0 +1,17 @@
+<div style="border: 1px dashed #000000">
+	<p>Element of type <span style="font-family: 'Courier New', Courier, monospace; color: red; font-weight: bold;">
+		{{uiEditorService.selectedObjects[0]?.saveLayout?.type}}
+	</span></p>
+	<p>ID {{uiEditorService.selectedObjects[0]?.id}}</p>
+	<div
+		*ngFor="
+			let property of uiEditorService.selectedObjects[0]?.saveLayout?.properties
+		"
+	>
+		<p>
+			{{ !property.isCss ? "(Helper)" : "" }}{{ property.key }}:
+			{{ property.value
+			}}{{ property.second ? "-" + property.second : "" }}
+		</p>
+	</div>
+</div>

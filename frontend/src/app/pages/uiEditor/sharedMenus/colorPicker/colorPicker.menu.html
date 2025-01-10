@@ -1,0 +1,20 @@
+<div [style]="'width: {{width}}; display: flex; align-items: center; gap: 10px;'">
+
+	<label style="min-width: 140px; font-size: smaller;" translate>
+		rightMenu.{{labelName?labelName:propName}}
+	</label>
+	<button
+			ejs-button cssClass="e-small e-round"
+			(click)="uiEditorService.removeProp(propName)"
+		>
+		<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"/></svg>
+	</button>
+
+	<input	ejs-colorpicker type="color" [disabled]="disabled"
+					[value]="uiEditorService.selectedObjects[0]?.$backgroundHoverColor || defaultColor"
+					(change)="setProp(propName, $event.value, '', isCss, renderOnlyOuter); change.emit($event.value+'')">
+
+	<input	#backgroundHoverColor type="color" [disabled]="disabled"
+					[value]="uiEditorService.selectedObjects[0]?.$backgroundHoverColor?.substring(0, 7) || defaultColor"
+					(input)="setProp(propName, backgroundHoverColor.value, '', isCss, renderOnlyOuter); change.emit(backgroundHoverColor.value+'')">
+</div>

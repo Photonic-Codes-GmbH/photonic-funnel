@@ -1,0 +1,6 @@
+<div [ngStyle]="{'display': uiEditorService?.rootObjectSelected() ? 'flex': 'none'}">
+
+	<colorPicker-menu style="width: 100%;" [width]="'calc(100% - 5px)'" propName='theme-color-primary'
+										labelName='Primary Theme' (change)="setThemeColor($event+'')"></colorPicker-menu>
+
+</div>

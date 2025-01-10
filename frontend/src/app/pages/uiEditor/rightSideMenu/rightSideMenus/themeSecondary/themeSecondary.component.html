@@ -1,0 +1,7 @@
+<div	[ngStyle]="{'display': uiEditorService?.rootObjectSelected() ? 'flex': 'none'}">
+
+	<colorPicker-menu style="width: 100%;" [width]="'calc\(100% - 5px\)'" propName='theme-color-secondary'
+										labelName='Secondary Theme' style="margin-top: 20px"
+										(change)="setSecondaryThemeColor($event+'')"></colorPicker-menu>
+
+</div>

@@ -1,0 +1,15 @@
+<!-- logic: The (change) event is fired after the toggle is already changed
+      Example: It is currently checked and the user clicks on it, then is is not checked anymore
+              Then the (change) event fires and sees that itself is currently NOT CHECKED
+              and calls the setProp() accordingly. -->
+<a [style]="'width: '+ width +'; margin-left: 10px; display: flex; align-items: center; justify-content: flex-start; gap: 10px;'">
+	<a style="font-size: small;" translate>menuInputLabels.{{shortName?shortName:propName}}</a>
+  <ejs-switch
+    #thisToggle
+		(ngModel)="checked"
+    (change)="setProp(propName, thisToggle.checked?checkedValue:secondValue);
+							change.emit(thisToggle.checked?checkedValue:secondValue);checked=thisToggle.checked"
+    [checked]="getProp(propName)==checkedValue"
+  >
+  </ejs-switch>
+</a>

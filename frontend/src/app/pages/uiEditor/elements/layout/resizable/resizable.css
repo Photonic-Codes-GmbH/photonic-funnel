@@ -1,0 +1,73 @@
+.handle {
+	position: absolute;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.handle.corner {
+	width: 10px;
+	height: 10px;
+	background-color: #0078d4;
+}
+
+.handle.edge {
+	background-color: transparent;
+}
+
+.handle.edge.top,
+.handle.edge.bottom {
+	left: 0;
+	right: 0;
+	height: 5px;
+}
+
+.handle.edge.top {
+	top: -2.5px;
+	cursor: ns-resize;
+}
+
+.handle.edge.bottom {
+	bottom: -2.5px;
+	cursor: ns-resize;
+}
+
+.handle.edge.left,
+.handle.edge.right {
+	top: 0;
+	bottom: 0;
+	width: 5px;
+}
+
+.handle.edge.left {
+	left: -2.5px;
+	cursor: ew-resize;
+}
+
+.handle.edge.right {
+	right: -2.5px;
+	cursor: ew-resize;
+}
+
+.handle.corner.top-left {
+	top: -5px;
+	left: -5px;
+	cursor: nwse-resize;
+}
+
+.handle.corner.top-right {
+	top: -5px;
+	right: -5px;
+	cursor: nesw-resize;
+}
+
+.handle.corner.bottom-left {
+	bottom: -5px;
+	left: -5px;
+	cursor: nesw-resize;
+}
+
+.handle.corner.bottom-right {
+	bottom: -5px;
+	right: -5px;
+	cursor: nwse-resize;
+}

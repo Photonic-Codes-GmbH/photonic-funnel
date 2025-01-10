@@ -1,0 +1,44 @@
+<dropdown-menu
+	[width]="width" propName="border-style" #borderType labelName="rightMenu.border"
+	[dataSource]="['solid', 'dashed', 'dotted', 'double', 'groove', 'ridge', 'inset', 'outset', 'none']"
+	[isCss]="true"
+></dropdown-menu>
+
+<ng-container *ngIf="uiEditorService.selectedObjects[0]?.$borderStyle !== 'none' && uiEditorService.selectedObjects[0]?.$borderStyle">
+
+	<dropdown-menu
+		[width]="width" propName="border-style" #borderArea labelName="rightMenu.borderArea"
+		[dataSource]="['trlb', 'rl', 'tb', 't', 'r', 'b', 'l']"
+		[isCss]="true" (change)="changeBorderArea(borderArea.value+'')"
+	></dropdown-menu>
+
+  <div [style]="'width: '+ width +';'">
+    <label translate>rightMenu.borderWidth</label>
+    <input
+      #borderWidth
+      type="number"
+      matInput
+      [value]="uiEditorService.selectedObjects[0]?.$borderSingleWidth"
+      (input)="changeBorderWidth(borderWidth.value)">
+  </div>
+
+  <div [style]="'width: '+ width +';'">
+    <label translate>rightMenu.borderRadius</label>
+    <input
+      #borderRadius
+      type="number"
+      matInput
+      [value]="uiEditorService.selectedObjects[0]?.$borderRadius"
+      (input)="setProp('border-radius', borderRadius.value, 'px')">
+  </div>
+
+  <div [style]="'width: '+ width +';'">
+    <label translate>rightMenu.borderColor</label>
+    <input
+      #borderColor
+      type="color"
+      matInput
+      [value]="getSetPropertyValue()"
+      (input)="setProp('border-color', borderColor.value)">
+  </div>
+</ng-container>

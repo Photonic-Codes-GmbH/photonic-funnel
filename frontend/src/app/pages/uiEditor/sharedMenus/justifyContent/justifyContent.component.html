@@ -1,0 +1,16 @@
+<label>{{
+	uiEditorService.selectedObjects[0]?.$flexDirection == "column"
+		? 'rightMenu.alignItems'
+		: 'rightMenu.justifyContent'
+		| translate }}</label>
+<ejs-dropdownlist
+	#hSelect
+	(change)="setProp('justify-content', hSelect.value+'')"
+	[value]="
+		uiEditorService.selectedObjects[0]?.$justifyContent == 'normal'
+			? 'flex-start'
+			: uiEditorService.selectedObjects[0]?.$justifyContent
+	"
+	[dataSource]="['flex-start','center','flex-end','Space between','Space around','Space evenly']"
+>
+</ejs-dropdownlist>

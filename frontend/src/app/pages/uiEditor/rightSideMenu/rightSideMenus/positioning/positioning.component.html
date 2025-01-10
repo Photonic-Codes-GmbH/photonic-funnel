@@ -1,0 +1,70 @@
+<b translate>rightMenu.positioning</b>
+
+<div class="horizontalMenu">
+
+	<dropdown-menu #posSelect propName="position" labelName="Position" width="49%" [isCss]="true"
+								 [dataSource]="['static','relative','absolute','fixed','sticky']"
+								 >
+	</dropdown-menu>
+
+	<!-- z-index -->
+	<input-field [ngStyle]="{'display': posSelect.value && posSelect.value != 'static' ? 'revert': 'none'}"
+		style="width: 49%"
+		[width]="'100%'"
+		[propName]="'z-index'"
+		[type]="'number'"
+		[isCss]="true"
+	></input-field>
+
+</div>
+
+<div
+	style="position: relative"
+	[ngStyle]="{'display': posSelect.value && posSelect.value != 'static' ? 'revert': 'none'}"
+>
+<div class="horizontalMenu">
+		<!-- top -->
+		<menu-unit-input
+			style="width: 49%"
+			[width]="'100%'"
+			[name]="'top'"
+			[renderOnlyOuter]="true"
+		></menu-unit-input>
+		<!-- right -->
+		<menu-unit-input
+			style="width: 49%"
+			[width]="'100%'"
+			[name]="'right'"
+			[renderOnlyOuter]="true"
+		></menu-unit-input>
+	</div>
+	<!-- center -->
+	<div
+		class="rounded-lg"
+		[style]="
+			(uiEditorService.hasProp('transform')
+				? 'background-color: rgb(59 130 246); '
+				: 'background-color: #fff; ') +
+			'cursor: pointer; border: 1px #8b8b8b solid; position: absolute; left: 47%; transform: translate(-50%, -50%); top: 50%; width: 20px; height: 20px; display: flex; align-items: center;'
+		"
+		(click)="switchCenter()"
+	>
+	<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 1024 1024"><path fill="currentColor" d="M512 0C229.232 0 0 229.232 0 512c0 282.784 229.232 512 512 512c282.784 0 512-229.216 512-512C1024 229.232 794.784 0 512 0m0 961.008c-247.024 0-448-201.984-448-449.01c0-247.024 200.976-448 448-448s448 200.977 448 448s-200.976 449.01-448 449.01M736 480H544V288c0-17.664-14.336-32-32-32s-32 14.336-32 32v192H288c-17.664 0-32 14.336-32 32s14.336 32 32 32h192v192c0 17.664 14.336 32 32 32s32-14.336 32-32V544h192c17.664 0 32-14.336 32-32s-14.336-32-32-32"/></svg>
+	</div>
+	<!-- bottom -->
+	<div class="horizontalMenu">
+		<menu-unit-input
+			style="width: 49%"
+			[width]="'100%'"
+			[name]="'bottom'"
+			[renderOnlyOuter]="true"
+		></menu-unit-input>
+		<!-- left -->
+		<menu-unit-input
+			style="width: 49%"
+			[width]="'100%'"
+			[name]="'left'"
+			[renderOnlyOuter]="true"
+		></menu-unit-input>
+	</div>
+</div>

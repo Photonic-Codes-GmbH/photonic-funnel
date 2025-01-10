@@ -1,0 +1,65 @@
+<ejs-treeview [fields]="field" class="tree">
+
+  <!-- Expandable nodes -->
+  <!-- <div *matTreeNodeDef="let node; when: hasChild" class="nested-tree-node" -->
+  <div *ngFor="let node of treeControl.dataNodes" class="nested-tree-node"
+
+    style="cursor: pointer;"
+    (mouseover)="node.setHover()"
+    (click)="node.onClick($event)"
+  >
+
+      <!-- Expandable Node -->
+      <div class="expandable-node" [ngClass]="{selected: node.hasRedOutline}"
+
+        [draggable]="!node.isRootNode"
+        (dragstart)="drag(node)"
+        (drop)="drop($event, node)"
+        (dragover)="dragover($event, node)"
+        (dragleave)="dragleave($event)"
+        >
+
+        <div style="display: flex; align-items: center;">
+
+					<!-- Icon -->
+          <button ejs-button cssClass="e-small e-round" matTreeNodeToggle (click)="updateDatasourceAndExpand()">
+						<svg *ngIf="treeControl.isExpanded(node)" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M16.59 8.59L12 13.17L7.41 8.59L6 10l6 6l6-6z"/></svg>
+						<svg *ngIf="!treeControl.isExpanded(node)" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M12.6 12L8 7.4L9.4 6l6 6l-6 6L8 16.6z"/></svg>
+          </button>
+
+					<!-- Text of the node -->
+          <div [ngClass]="{'bold': node.hasBlueOutline}">{{node.$displayName}}</div>
+
+        </div>
+      </div>
+
+      <!-- Node Group  -->
+      <div [class.tree-invisible]="!treeControl.isExpanded(node)" role="group">
+        <ng-container matTreeNodeOutlet></ng-container>
+      </div>
+
+      <div *ngIf="!node.isRootNode" class="below"
+        (dragover)="dragover($event, node)"
+        (dragleave)="dragleave($event)"
+        (drop)="drop($event, node)">
+      </div>
+
+  </div>
+
+  <!-- Leaf nodes -->
+  <!-- <ejs-treeview-node *matTreeNodeDef="let node" matTreeNodeToggle [ngClass]="{selected: node.hasRedOutline}"
+
+    draggable="true" (dragstart)="drag(node)" (drop)="drop($event, node)" (dragover)="dragover($event, node)" (dragleave)="dragleave($event)"
+
+    style="cursor: pointer;"
+    (mouseover)="node.setHover()"
+    (click)="node.onClick($event)"
+  >
+
+    <div class="above"></div>
+
+    <div class="center" [ngClass]="{bold: node.hasBlueOutline}">{{node.$displayName}}</div>
+
+    <div class="below"></div>
+  </ejs-treeview-node> -->
+</ejs-treeview>

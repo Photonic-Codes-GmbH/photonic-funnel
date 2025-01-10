@@ -1,0 +1,23 @@
+<div [style]="'width: '+ width +'; display: flex; align-items: center'">
+
+    <!-- (click)="uiEditorService.removeProp(name);
+    					thisInput.value = ''" -->
+
+  <ejs-textbox
+    #thisInput [placeholder]="shortName?shortName:name"
+    showClearButton="true"
+		[disabled]="disabled"
+    type="number" floatLabelType="Auto"
+    [(ngModel)]="inputValue"
+    (focus)="uiEditorService.tfFocussed(true)"
+    (focusout)="uiEditorService.tfFocussed(false)"
+  >
+	</ejs-textbox>
+  <button style="min-width: 24px;"
+    ejs-button cssClass="e-small e-round"
+    (click)="switchUnitProperty()"
+  >
+    <span style="font-size: 16px;">{{ unit }}</span>
+  </button>
+
+</div>

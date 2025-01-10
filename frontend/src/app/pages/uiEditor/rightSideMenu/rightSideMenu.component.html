@@ -1,0 +1,46 @@
+<!-- <b>Undo Stack:</b><a>Length: {{commandManager.undoStack.length}}</a>
+<div *ngFor="let stackItem of commandManager.undoStack" style="font-size: small;">
+	{{ stackItem.type }} um {{ stackItem.time }}
+</div>
+
+<b>Redo Stack:</b><a>Length: {{commandManager.redoStack.length}}</a>
+<div *ngFor="let stackItem of commandManager.redoStack" style="font-size: small;">
+	{{ stackItem.type }} um {{ stackItem.time }}
+</div> -->
+
+<input-field id="nameInput" style="width: 100%" width="100%" propName="displayName" type="text" [isCss]="false"></input-field>
+
+<input-field style="width: 100%" width="100%" propName="globalStyle" type="text" [isCss]="false"></input-field>
+
+<dimensions style="margin-top: 20px;"></dimensions>
+
+<spacing style="margin-top: 20px;"></spacing>
+
+<positioning style="margin-top: 20px;"></positioning>
+
+<codeNstyleButtonRow style="margin-top: 20px;"></codeNstyleButtonRow>
+
+<layoutOptions [ngStyle]="{'display': this.uiEditorService?.allLayouts() ? 'revert': 'none'}"></layoutOptions>
+
+<!-- ELEMENT MENUS -->
+<customCode-menu></customCode-menu>
+<!-- <langchainMenu></langchainMenu> -->
+<richTextMenu></richTextMenu>
+<!-- <project-menu></project-menu> -->
+<!-- <sf-kanban-menu></sf-kanban-menu> -->
+<sf-button-menu></sf-button-menu>
+<!-- <sf-checkbox-menu></sf-checkbox-menu>
+<sf-textbox-menu></sf-textbox-menu>
+<sf-datepicker-menu></sf-datepicker-menu>
+<sf-timepicker-menu></sf-timepicker-menu>
+<sf-schedule-menu></sf-schedule-menu>
+<sf-dropdown-menu></sf-dropdown-menu>
+<sf-chart-menu></sf-chart-menu>
+<sf-dataGrid-menu></sf-dataGrid-menu>
+<sf-tabs-menu></sf-tabs-menu>
+<sf-appBar-menu></sf-appBar-menu>
+<sf-sideBar-menu></sf-sideBar-menu>
+<sf-map-menu></sf-map-menu> -->
+<!-- ⚠️ ATTENTION!: use the "-menu" suffix here! -->
+
+<propertyDebugArea style="margin-top: 20px;"></propertyDebugArea>

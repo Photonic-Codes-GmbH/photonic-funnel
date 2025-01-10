@@ -1,0 +1,173 @@
+
+<ejs-toast #toasttype id='toasttype'></ejs-toast>
+<div id="dialog-container"></div>
+
+<!-- Theme dialog -->
+<ejs-dialog id='dialog' #ejDialog target="#dialog-container" [showCloseIcon]='true'
+						width='350px' [visible]="false" header='Theme einstellen' (overlayClick)="ejDialog.hide()" isModal='true'>
+	<themePrimary></themePrimary>
+	<themeSecondary></themeSecondary>
+</ejs-dialog>
+
+<!-- Media Browser dialog -->
+<ejs-dialog id='dialog' #mediaDialog target="#dialog-container" [showCloseIcon]='true'
+						width='70%' [visible]="false" header='Medienmanager' (overlayClick)="ejDialog.hide()" isModal='true'>
+	<mediaDialog-root></mediaDialog-root>
+</ejs-dialog>
+
+<!--
+████████╗ ██████╗  ██████╗ ██╗     ██████╗  █████╗ ██████╗ 
+╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔══██╗██╔══██╗██╔══██╗
+   ██║   ██║   ██║██║   ██║██║     ██████╔╝███████║██████╔╝
+   ██║   ██║   ██║██║   ██║██║     ██╔══██╗██╔══██║██╔══██╗
+   ██║   ╚██████╔╝╚██████╔╝███████╗██████╔╝██║  ██║██║  ██║
+   ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+-->
+<ejs-toolbar>
+	<e-items>
+
+		<ng-container *ngIf="!uiEditorService.isLiveMode">
+
+			<e-item [disabled]="uiEditorService?.rootObjectSelected()" (click)="uiEditorService.cutUndo()" prefixIcon='e-cut-icon tb-icons' tooltipText="{{ 'Ausschneiden' | translate }}"></e-item>
+			<e-item prefixIcon='e-copy-icon tb-icons' (click)="uiEditorService.copy()" tooltipText="{{ 'Kopieren' | translate }}"></e-item>
+			<e-item [disabled]="!uiEditorService.allLayouts()" (click)="uiEditorService.pasteUndo()" tooltipText="{{ 'Einfügen' | translate }}" prefixIcon='e-paste-icon tb-icons'></e-item>
+			
+			<!-- Klonen -->
+			<e-item>
+				<ng-template #template>
+					<ejs-tooltip #tooltip content="{{ 'Klonen' | translate }}">
+						<button ejs-button cssClass="e-small e-flat" class="toolbarButton" color="accent"
+							(click)="uiEditorService.cloneAllUndo()" [disabled]="uiEditorService?.rootObjectSelected()"
+						>
+						<svg *ngIf="uiEditorService?.rootObjectSelected()" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"><path fill="#a6a6a6" d="M14 16h2v-3h3v-2h-3V8h-2v3h-3v2h3zm-8 4.5q-2.725-.95-4.362-3.287T0 12t1.638-5.212T6 3.5v2.2q-1.85.875-2.925 2.575T2 12t1.075 3.725T6 18.3zm9 .5q-1.875 0-3.512-.712t-2.85-1.925t-1.925-2.85T6 12t.713-3.512t1.925-2.85t2.85-1.925T15 3t3.513.713t2.85 1.924t1.925 2.85T24 12t-.712 3.513t-1.925 2.85t-2.85 1.925T15 21"/></svg>
+						<svg *ngIf="!uiEditorService?.rootObjectSelected()" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"><path fill="#373737" d="M14 16h2v-3h3v-2h-3V8h-2v3h-3v2h3zm-8 4.5q-2.725-.95-4.362-3.287T0 12t1.638-5.212T6 3.5v2.2q-1.85.875-2.925 2.575T2 12t1.075 3.725T6 18.3zm9 .5q-1.875 0-3.512-.712t-2.85-1.925t-1.925-2.85T6 12t.713-3.512t1.925-2.85t2.85-1.925T15 3t3.513.713t2.85 1.924t1.925 2.85T24 12t-.712 3.513t-1.925 2.85t-2.85 1.925T15 21"/></svg>
+						</button>
+					</ejs-tooltip>
+				</ng-template>
+			</e-item>
+			
+			<!-- Löschen -->
+			<e-item>
+				<ng-template #template>
+					<ejs-tooltip #tooltip content="{{ 'Löschen' | translate }}">
+						<button style="margin-left: -10px;" ejs-button cssClass="e-small e-flat" class="toolbarButton" color="accent"
+							(click)="uiEditorService.removeAllSelectedElementsUndo()" [disabled]="uiEditorService?.rootObjectSelected()"
+						>
+						<svg *ngIf="uiEditorService?.rootObjectSelected()" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"><path fill="#a6a6a6" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zm2-4h2V8H9zm4 0h2V8h-2z"/></svg>
+						<svg *ngIf="!uiEditorService?.rootObjectSelected()" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"><path fill="#591f1f" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zm2-4h2V8H9zm4 0h2V8h-2z"/></svg>
+						</button>
+					</ejs-tooltip>
+				</ng-template>
+			</e-item>
+
+		</ng-container>
+
+		<e-item type='Separator'></e-item>
+
+		<ng-container *ngIf="uiEditorService.isLiveMode">
+
+			<e-item>
+				<ng-template #template>
+					<div id="text" class="e-btn-group e-flat e-small" style="margin: 0px 20px; box-shadow: none;">
+
+						@let previewType1 = 'desktop'; @let previewType1Cap = previewType1.charAt(0).toUpperCase() + previewType1.slice(1);
+						<ejs-tooltip #tooltip content="{{ previewType1Cap | translate }}">
+							<input (click)="uiEditorService.switchPreviewMode(previewType1)"  [checked]="uiEditorService.previewType == previewType1" type="radio" [id]="previewType1" name="align" [value]="previewType1" />
+							<label class="e-btn e-flat e-small" [for]="previewType1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="#8D5BC1" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20h3m3 0h-3m0 0v-3m0 0h7a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2z"/></svg></label>
+						</ejs-tooltip>
+						
+						@let previewType2 = 'tablet'; @let previewType2Cap = previewType2.charAt(0).toUpperCase() + previewType2.slice(1);
+						<ejs-tooltip #tooltip content="{{ previewType2Cap | translate }}">
+							<input (click)="uiEditorService.switchPreviewMode(previewType2)" [checked]="uiEditorService.previewType == previewType2" type="radio" [id]="previewType2" name="align" [value]="previewType2" />
+							<label class="e-btn e-flat e-small" [for]="previewType2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="#8D5BC1" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.714 3H6.286C5.023 3 4 3.806 4 4.8v14.4c0 .994 1.023 1.8 2.286 1.8h11.428C18.977 21 20 20.194 20 19.2V4.8c0-.994-1.023-1.8-2.286-1.8M10.5 6h3"/></svg></label>
+						</ejs-tooltip>
+
+						@let previewType3 = 'smartphone'; @let previewType3Cap = previewType3.charAt(0).toUpperCase() + previewType3.slice(1);
+						<ejs-tooltip #tooltip content="{{ previewType3Cap | translate }}">
+							<input (click)="uiEditorService.switchPreviewMode(previewType3)" [checked]="uiEditorService.previewType == previewType3" type="radio" [id]="previewType3" name="align" [value]="previewType3" />
+							<label class="e-btn e-flat e-small" [for]="previewType3"><svg style="margin-top: 1px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="-6 -2 24 24"><path fill="#9b7bbb" d="M3 0h6a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3m0 2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zm3 15a1 1 0 1 1 0-2a1 1 0 0 1 0 2"/></svg></label>
+						</ejs-tooltip>
+					</div>
+				</ng-template>
+			</e-item>
+
+			<e-item type='Separator'></e-item>
+
+		</ng-container>
+
+		<!-- Download Code -->
+		<e-item>
+			<ng-template #template>
+				<ejs-tooltip #tooltip content="{{ 'Code herunterladen' | translate }}">
+					<button ejs-button cssClass="e-small e-flat" class="toolbarButton" color="accent" (click)="downloadCode()">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m8 18l-6-6l6-6l1.425 1.425l-4.6 4.6L9.4 16.6zm8 0l-1.425-1.425l4.6-4.6L14.6 7.4L16 6l6 6z"/></svg>
+					</button>
+				</ejs-tooltip>
+			</ng-template>
+		</e-item>
+
+		<!-- Preview -->
+		<e-item>
+			<ng-template #template>
+				<ejs-tooltip #tooltip content="{{ 'Vorschau-Ansicht umschalten' | translate }}">
+					<button ejs-button cssClass="e-small e-flat" class="toolbarButton" color="accent"
+									(click)="uiEditorService.toggleLiveMode()">
+						<svg style="margin-top: 3px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h3.5v2H4v1.5H2zm5.5 0h3v2h-3zm5 0h3v2h-3zm5 0H21v3.5h-2V4h-1.5zM4 7.5v3H2v-3zm17 0v3h-2v-3zm-17 5v3H2v-3zM20 14v2h-2.586l4 4L20 21.414l-4-4V20h-2v-6zM4 17.5V19h1.5v2H2v-3.5zM7.5 19h3v2h-3z"/></svg>
+					</button>
+				</ejs-tooltip>
+			</ng-template>
+		</e-item>
+
+		<ng-container *ngIf="!uiEditorService.isLiveMode">
+			
+			<e-item type='Separator'></e-item>
+			
+			<e-item><ng-template #template><undoRedo></undoRedo></ng-template></e-item>
+
+		</ng-container>
+
+		<e-item type='Separator'></e-item>
+
+		<e-item (click)="ejDialog.show()" prefixIcon='e-color-icon tb-icons' tooltipText="{{ 'Theme Farbe' | translate }}"
+						text="{{ 'Theme Farbe' | translate }}">
+		</e-item>
+
+		<e-item *ngIf="!uiEditorService.isLiveMode" (click)="mediaDialog.show()" prefixIcon='e-open-folder-icon tb-icons'
+						tooltipText="{{ 'mediaManager' | translate }}" text="{{ 'mediaManager' | translate }}">
+		</e-item>
+
+	</e-items>
+</ejs-toolbar>
+<div class="editor-background">
+	<!--
+	███████╗██╗██████╗ ███████╗███╗   ██╗ █████╗ ██╗   ██╗    ██╗     ██╗███╗   ██╗██╗  ██╗███████╗
+	██╔════╝██║██╔══██╗██╔════╝████╗  ██║██╔══██╗██║   ██║    ██║     ██║████╗  ██║██║ ██╔╝██╔════╝
+	███████╗██║██║  ██║█████╗  ██╔██╗ ██║███████║██║   ██║    ██║     ██║██╔██╗ ██║█████╔╝ ███████╗
+	╚════██║██║██║  ██║██╔══╝  ██║╚██╗██║██╔══██║╚██╗ ██╔╝    ██║     ██║██║╚██╗██║██╔═██╗ ╚════██║
+	███████║██║██████╔╝███████╗██║ ╚████║██║  ██║ ╚████╔╝     ███████╗██║██║ ╚████║██║  ██╗███████║
+	╚══════╝╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝  ╚═══╝      ╚══════╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝
+	-->
+	<leftSideMenu [ngStyle]="{'display': uiEditorService.isLiveMode ? 'none': 'flex'}"></leftSideMenu>
+	
+	<!--
+	███████╗██████╗ ██╗████████╗ ██████╗ ██████╗      █████╗ ██████╗ ███████╗ █████╗
+	██╔════╝██╔══██╗██║╚══██╔══╝██╔═══██╗██╔══██╗    ██╔══██╗██╔══██╗██╔════╝██╔══██╗
+	█████╗  ██║  ██║██║   ██║   ██║   ██║██████╔╝    ███████║██████╔╝█████╗  ███████║
+	██╔══╝  ██║  ██║██║   ██║   ██║   ██║██╔══██╗    ██╔══██║██╔══██╗██╔══╝  ██╔══██║
+	███████╗██████╔╝██║   ██║   ╚██████╔╝██║  ██║    ██║  ██║██║  ██║███████╗██║  ██║
+	╚══════╝╚═════╝ ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝    ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
+	-->
+	<div id="editor-area" class="editor-area desktop">
+		<ng-container #viewContainerAnker></ng-container>
+	</div>
+	
+	<!--
+	███████╗██╗██████╗ ███████╗███╗   ██╗ █████╗ ██╗   ██╗    ██████╗ ███████╗ ██████╗██╗  ██╗████████╗███████╗
+	██╔════╝██║██╔══██╗██╔════╝████╗  ██║██╔══██╗██║   ██║    ██╔══██╗██╔════╝██╔════╝██║  ██║╚══██╔══╝██╔════╝
+	███████╗██║██║  ██║█████╗  ██╔██╗ ██║███████║██║   ██║    ██████╔╝█████╗  ██║     ███████║   ██║   ███████╗
+	╚════██║██║██║  ██║██╔══╝  ██║╚██╗██║██╔══██║╚██╗ ██╔╝    ██╔══██╗██╔══╝  ██║     ██╔══██║   ██║   ╚════██║
+	███████║██║██████╔╝███████╗██║ ╚████║██║  ██║ ╚████╔╝     ██║  ██║███████╗╚██████╗██║  ██║   ██║   ███████║
+	╚══════╝╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝  ╚═══╝      ╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝
+	-->
+	<rightSideMenu [ngStyle]="{'display': uiEditorService.isLiveMode ? 'none': 'flex'}"></rightSideMenu>
+</div>

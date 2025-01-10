@@ -1,0 +1,40 @@
+<label>{{
+	uiEditorService.selectedObjects[0]?.$flexDirection == "column"
+		? 'rightMenu.justifyContent'
+		: 'rightMenu.alignItems'
+		| translate }}</label>
+<ejs-dropdownlist
+	#vSelect
+	(change)="
+		setProp('align-items', vSelect.value+'');
+		uiEditorService.selectedObjects[0]?.$flexWrap == 'wrap'
+			? setProp('align-content', vSelect.value+'')
+			: ''
+	"
+	[value]="
+		uiEditorService.selectedObjects[0]?.$flexWrap == 'wrap'
+			? uiEditorService.selectedObjects[0]?.$alignContent == 'normal'
+				? 'stretch'
+				: uiEditorService.selectedObjects[0]?.$alignContent
+			: uiEditorService.selectedObjects[0]?.$alignItems == 'normal'
+			? 'stretch'
+			: uiEditorService.selectedObjects[0]?.$alignItems
+	"
+	[dataSource]="['flex-start','center','flex-end','stretch']"
+>
+	<!-- <option
+		*ngIf="uiEditorService.selectedObjects[0]?.$flexWrap == 'wrap'"
+		value="space-between"
+		>Space between</option
+	>
+	<option
+		*ngIf="uiEditorService.selectedObjects[0]?.$flexWrap == 'wrap'"
+		value="space-around"
+	>Space around</option
+	>
+	<option
+		*ngIf="uiEditorService.selectedObjects[0]?.$flexWrap == 'wrap'"
+		value="space-evenly"
+		>Space evenly</option
+	> -->
+</ejs-dropdownlist>

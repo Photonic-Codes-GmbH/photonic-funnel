@@ -1,6 +1,29 @@
 :host{
 
+	height: 100%;
 	display: flex;
 	flex-direction: column;
-	height: -webkit-fill-available;
+}
+
+.toolbarContent{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.toolbarButton{
+	width: 40px !important;
+	height: 40px !important;
+	background-color: --color-sf-primary;
+	color: white;
+}
+
+.e-input-group {
+
+	color: white;
+}
+
+.e-search-icon {
+
+	color: white !important;
 }

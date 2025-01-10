@@ -1,0 +1,72 @@
+.tree-invisible {
+  display: none;
+}
+
+.tree ul,
+.tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+.nested-tree-node{
+
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+ * This padding sets alignment of the nested nodes.
+ */
+.tree .nested-tree-node div[role="group"] {
+  padding-left: 20px;
+}
+
+/*
+ * Padding for leaf nodes.
+ * Leaf nodes need to have padding so as to align with other non-leaf nodes
+ * under the same parent.
+ */
+.tree div[role="group"] > .ejs-treeview-node {
+  padding-left: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.above {
+  flex-grow: 1;
+}
+
+.below {
+  flex-grow: 1;
+}
+
+.draggingOverMe {
+  border-top: 3px dashed rgb(83, 83, 83);
+}
+
+.draggingUnderMe {
+  border-bottom: 3px dashed rgb(83, 83, 83);
+}
+
+.draggingAsChild {
+  border-right: 3px dashed rgb(83, 83, 83);
+}
+
+.dragOverPlaceholder {
+  background: #ccc;
+  border: dotted 3px #999;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.bold {
+
+  font-weight: bold;
+}
+
+.selected {
+
+  background-color: dodgerblue
+}

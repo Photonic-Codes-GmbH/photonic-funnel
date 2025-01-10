@@ -1,0 +1,59 @@
+<!--
+██████╗  █████╗  ██████╗██╗  ██╗ ██████╗ ██████╗  ██████╗ ██╗   ██╗███╗   ██╗██████╗      ██████╗ ██████╗ ██╗      ██████╗ ██████╗
+██╔══██╗██╔══██╗██╔════╝██║ ██╔╝██╔════╝ ██╔══██╗██╔═══██╗██║   ██║████╗  ██║██╔══██╗    ██╔════╝██╔═══██╗██║     ██╔═══██╗██╔══██╗
+██████╔╝███████║██║     █████╔╝ ██║  ███╗██████╔╝██║   ██║██║   ██║██╔██╗ ██║██║  ██║    ██║     ██║   ██║██║     ██║   ██║██████╔╝
+██╔══██╗██╔══██║██║     ██╔═██╗ ██║   ██║██╔══██╗██║   ██║██║   ██║██║╚██╗██║██║  ██║    ██║     ██║   ██║██║     ██║   ██║██╔══██╗
+██████╔╝██║  ██║╚██████╗██║  ██╗╚██████╔╝██║  ██║╚██████╔╝╚██████╔╝██║ ╚████║██████╔╝    ╚██████╗╚██████╔╝███████╗╚██████╔╝██║  ██║
+╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚═════╝      ╚═════╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝
+
+-->
+<colorPicker-menu width='95%' propName='background-color' labelName='Hintergrundfarbe' [isCss]="true"
+									[disabled]="uiEditorService.selectedObjects[0]?.$themeBackground == 'true'"
+									style="margin-top: 20px">
+</colorPicker-menu>
+<!-- (click)="	setProp('background-color', '#FFFFFF');
+								uiEditorService.removeProp('background-color');
+								uiEditorService.removeProp('themeBackground')" -->
+
+<!-- <div style="width: 95%; display: flex; align-items: center; gap: 10px;">
+
+	<p *ngIf="this.uiEditorService?.allLayouts()" style="margin-left: 10px">
+
+		<ejs-switch
+			style="margin-left: 10px"
+			#themeBackgroundToggle
+			(change)="
+				setProp('themeBackground', themeBackgroundToggle.checked ? 'true' : 'false', '', true);
+				setProp('background-color', uiEditorService.rootNode.uiEditorService.selectedObjects[0]?.$themeColorPrimary?.substring(0, 7) + '0d')
+			"
+			[checked]="uiEditorService.selectedObjects[0]?.$themeBackground == 'true'"
+		>
+			Themefarbe?
+		</ejs-switch>
+	</p>
+</div> -->
+
+<!--
+██╗  ██╗ ██████╗ ██╗   ██╗███████╗██████╗     ██████╗  ██████╗      ██████╗ ██████╗ ██╗      ██████╗ ██████╗
+██║  ██║██╔═══██╗██║   ██║██╔════╝██╔══██╗    ██╔══██╗██╔════╝     ██╔════╝██╔═══██╗██║     ██╔═══██╗██╔══██╗
+███████║██║   ██║██║   ██║█████╗  ██████╔╝    ██████╔╝██║  ███╗    ██║     ██║   ██║██║     ██║   ██║██████╔╝
+██╔══██║██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗    ██╔══██╗██║   ██║    ██║     ██║   ██║██║     ██║   ██║██╔══██╗
+██║  ██║╚██████╔╝ ╚████╔╝ ███████╗██║  ██║    ██████╔╝╚██████╔╝    ╚██████╗╚██████╔╝███████╗╚██████╔╝██║  ██║
+╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝    ╚═════╝  ╚═════╝      ╚═════╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝
+
+-->
+<colorPicker-menu width='95%' propName='backgroundHoverColor' labelName='Hover Hintergrundfarbe'
+									style="margin-top: 20px">
+</colorPicker-menu>
+
+<!--
+██████╗  █████╗ ██████╗ ██╗██╗   ██╗███████╗
+██╔══██╗██╔══██╗██╔══██╗██║██║   ██║██╔════╝
+██████╔╝███████║██║  ██║██║██║   ██║███████╗
+██╔══██╗██╔══██║██║  ██║██║██║   ██║╚════██║
+██║  ██║██║  ██║██████╔╝██║╚██████╔╝███████║
+╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝ ╚═════╝ ╚══════╝
+
+-->
+<dropdown-menu [width]="width" [dataSource]="['0px', '5px', '15px']" propName="border-radius">
+</dropdown-menu>

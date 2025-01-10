@@ -1,0 +1,14 @@
+<!-- DISABLED? -->
+<!-- logic: The (change) event is fired after the toggle is already changed
+      Example: It is currently checked and the user clicks on it, then is is not checked anymore
+              Then the (change) event fires and sees that itself is currently NOT CHECKED
+              and calls the setProp() accordingly. -->
+<p style="margin-left: 10px;">
+  <ejs-switch
+    #disabledToggle
+    (change)="setProp('disabled', disabledToggle.checked?'1':'0')"
+    [checked]="uiEditorService.selectedObjects[0]?.element.$disabled == '1'"
+  >
+    <span translate>rightMenu.deactivated</span>
+  </ejs-switch>
+</p>

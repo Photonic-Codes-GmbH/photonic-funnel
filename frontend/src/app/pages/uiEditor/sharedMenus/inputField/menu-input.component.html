@@ -1,0 +1,27 @@
+<div [style]="'width: '+ width +';'">
+
+	<!-- (click)="uiEditorService.removeProp(name)" -->
+
+  <ejs-textbox
+		#thisInput [placeholder]="shortName?shortName:propName"
+		showClearButton="true"
+		floatLabelType="Auto"
+		[(ngModel)]="inputValue"
+		(focus)="uiEditorService.tfFocussed(true)"
+		(focusout)="uiEditorService.tfFocussed(false)"
+		[type]="type"
+	>
+	</ejs-textbox>
+
+	<!-- <div class="e-float-input" style="display: flex;">
+		<div>
+			<input	[type]="type" [min]="min" [(ngModel)]="inputValue"
+							(focus)="uiEditorService.tfFocussed(true)" #myInput floatLabelType="Auto"
+							(focusout)="uiEditorService.tfFocussed(false)">
+			<span class="e-float-line"></span>
+			<label class="e-float-text" for="name" translate>menuInputLabels.{{shortName?shortName:propName}}</label>
+		</div>
+		<span class="e-clear-icon e-clear-icon-hide" role="button" (click)="myInput.value = ''"></span>
+	</div> -->
+
+</div>

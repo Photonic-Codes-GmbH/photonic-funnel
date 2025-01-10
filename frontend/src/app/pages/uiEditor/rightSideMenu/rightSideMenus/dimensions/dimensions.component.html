@@ -1,0 +1,104 @@
+<b translate>rightMenu.dimensions</b>
+
+<div class="horizontalMenu">
+
+	<!-- WIDTH -->
+	<div style="width: 49%">
+
+		<toggle-menu	#fullWidthToggle propName="width" checkedValue="-webkit-fill-available" secondValue=""
+									[isCss]="true" style="margin-left: 10px"></toggle-menu>
+
+		<menu-unit-input
+			style="width: 49%"
+			[width]="'100%'"
+			[name]="'width'"
+			[renderOnlyOuter]="true"
+			[disabled]="uiEditorService.selectedObjects[0]?.$width == '-webkit-fill-available'"
+		></menu-unit-input>
+
+	</div>
+
+	<!-- HEIGHT -->
+	<div style="width: 49%">
+
+		<toggle-menu	style="margin-left: 10px" #fullHeightToggle propName="height" [isCss]="true"
+									checkedValue="-webkit-fill-available" secondValue="" ></toggle-menu>
+
+		<menu-unit-input [ngStyle]="{'display': !ownHeightCssToggle.checked ? 'revert': 'none'}"
+			[width]="'100%'"
+			[name]="'height'"
+			[renderOnlyOuter]="true"
+			[disabled]="uiEditorService.selectedObjects[0]?.$height == '-webkit-fill-available'"
+		></menu-unit-input>
+
+		<toggle-menu	#ownHeightCssToggle propName="ownHeightCss" shortName="ownHeightCss" checkedValue="1" secondValue="0"
+									[isCss]="false" style="margin-left: 10px"></toggle-menu>
+
+		<!-- Own CSS -->
+		<input-field [ngStyle]="{'display': !ownHeightCssToggle.checked ? 'revert': 'none'}"
+			style="width: 49%"
+			[width]="'100%'"
+			[propName]="'height'"
+			[type]="'text'"
+			[isCss]="true"
+		></input-field>
+	</div>
+
+</div>
+
+<div class="horizontalMenu">
+
+	<!-- MIN-WIDTH -->
+	<div style="width: 49%">
+
+		<menu-unit-input
+			style="width: 49%"
+			[width]="'100%'"
+			[name]="'min-width'"
+			[renderOnlyOuter]="true"
+		></menu-unit-input>
+
+	</div>
+
+	<!-- MIN-HEIGHT -->
+	<div style="width: 49%">
+
+		<menu-unit-input
+			[width]="'100%'"
+			[name]="'min-height'"
+			[renderOnlyOuter]="true"
+		></menu-unit-input>
+	</div>
+
+</div>
+
+<div class="horizontalMenu">
+
+	<!-- MAX-WIDTH -->
+	<div style="width: 49%">
+
+		<menu-unit-input
+			style="width: 49%"
+			[width]="'100%'"
+			[name]="'max-width'"
+			[renderOnlyOuter]="true"
+		></menu-unit-input>
+
+	</div>
+
+	<!-- MAX-HEIGHT -->
+	<div style="width: 49%">
+
+		<menu-unit-input
+			[width]="'100%'"
+			[name]="'max-height'"
+			[renderOnlyOuter]="true"
+		></menu-unit-input>
+
+	</div>
+
+</div>
+
+<!-- flex-grow -->
+<toggle-menu	#growToggle propName="flex-grow" checkedValue="1" secondValue="0"
+[isCss]="true" style="margin-left: 10px" (change)="setProp('display', 'flex','',true)"></toggle-menu>
