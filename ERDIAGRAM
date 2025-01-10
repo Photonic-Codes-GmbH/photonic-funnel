@@ -1,0 +1,7 @@
+---
+title: Photonic Funnel
+---
+erDiagram
+Project {
+		string name
+}
