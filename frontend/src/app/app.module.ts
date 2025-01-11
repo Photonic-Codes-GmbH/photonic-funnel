@@ -1,17 +1,16 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular'
-
+import { ConfigService } from './core/services/config.service'
 import { CoreModule } from './core/core.module'
 import { SharedModule } from './shared/shared.module'
-import { ConfigService } from './core/services/config.service'
+import { SyncfusionModule } from './syncfusion.module'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { SyncfusionModule } from './syncfusion.module'
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular'
 
 function initializeKeycloak(keycloak: KeycloakService, configService: ConfigService) {
   return () => keycloak.init({
@@ -37,16 +36,17 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    CoreModule,
-    SharedModule,
+		CoreModule,
+		SharedModule,
+		HttpClientModule,
     BrowserModule,
-    BrowserAnimationsModule,
+		BrowserAnimationsModule,
     KeycloakAngularModule,
+		SyncfusionModule,
     AppRoutingModule,
-    SyncfusionModule,
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,
@@ -56,17 +56,17 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   providers: [
-    HttpClient,
+		HttpClient,
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService, ConfigService]
     }
-  ],
+	],
   bootstrap: [
-    AppComponent
-  ]
+		AppComponent,
+]
 })
 export class AppModule {
 }

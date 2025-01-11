@@ -3,10 +3,10 @@ export const environment = {
 
   backendProtocol: 'http',
   backendDomain: 'localhost',
-  backendPort: '3005',
+  backendPort: '3000',
   backendPrefix: 'api',
 
-  keycloakUrl: 'http://localhost:8080',
-  keycloakRealm: '',
-  keycloakClientId: ''
-};
+  keycloakUrl: 'https://kc.testing.photonic-codes.cloud',
+  keycloakRealm: 'photonic-funnel',
+  keycloakClientId: 'local-photonic-funnel-client'
+}

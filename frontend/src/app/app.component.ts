@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
 		// Token daten
 		const keycloakInstance = this.keycloak.getKeycloakInstance()
 		const tokenData: KeycloakToken = keycloakInstance.tokenParsed
+		console.log('tokenData', tokenData)
 
 		if(!tokenData) return
 		const authDate = new Date(tokenData.auth_time * 1000)

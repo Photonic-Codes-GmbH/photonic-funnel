@@ -13,8 +13,9 @@
 	<div class="toolbarContent">
 
 		<div style="display: flex; justify-content: flex-start; align-items: center; gap: 15px;">
-			<img width="24px" src="assets/white-flask.svg">
-			<span>Photonic Lab</span>
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="#fff" d="M296 464a23.9 23.9 0 0 1-7.55-1.23L208.3 436.1a23.92 23.92 0 0 1-16.3-22.78V294.11a.4.4 0 0 0-.09-.13L23.26 97.54A30 30 0 0 1 46.05 48H466a30 30 0 0 1 22.79 49.54L320.09 294a1 1 0 0 0-.09.13V440a23.93 23.93 0 0 1-24 24"/></svg>
+			<span>Photonic Funnel</span>
+
 			<!-- Projects -->
 			<ejs-tooltip #tooltip content="{{'PROJEKTE_tooltip' | translate}}">
 				<button
@@ -27,6 +28,7 @@
 					<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M3.5 1.5a3 3 0 0 0-3 3V11a3 3 0 0 0 3 3h9a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3h-5l-.621-.621A3 3 0 0 0 4.757 1.5zm1.25 5a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5z" clip-rule="evenodd"/></svg>
 				</button>
 			</ejs-tooltip>
+
 			<!-- Programmer -->
 			<ejs-tooltip #tooltip content="{{'Programmierer' | translate}}">
 				<button
@@ -39,6 +41,7 @@
 				<svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2em" viewBox="0 0 640 512"><path fill="#fff" d="M320 0c17.7 0 32 14.3 32 32v64h120c39.8 0 72 32.2 72 72v272c0 39.8-32.2 72-72 72H168c-39.8 0-72-32.2-72-72V168c0-39.8 32.2-72 72-72h120V32c0-17.7 14.3-32 32-32M208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16zM264 256a40 40 0 1 0-80 0a40 40 0 1 0 80 0m152 40a40 40 0 1 0 0-80a40 40 0 1 0 0 80M48 224h16v192H48c-26.5 0-48-21.5-48-48v-96c0-26.5 21.5-48 48-48m544 0c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-16V224z"/></svg>
 				</button>
 			</ejs-tooltip>
+		
 			<!-- UI Editor -->
 			<ejs-tooltip #tooltip content="UI Editor">
 				<button
@@ -49,18 +52,6 @@
 					routerLink="/uieditor"
 					>
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.93l-3.75-3.75zm19.61 1.11l-4.25 4.25l-5.2-5.2l1.77-1.77l1 1l2.47-2.48l1.42 1.42L18.36 17l1.06 1l1.42-1.4zm-16-7.53L1.39 5.64l4.25-4.25L7.4 3.16L4.93 5.64L6 6.7l2.46-2.48l1.42 1.42l-1.42 1.41l1 1zM20.71 7c.39-.39.39-1 0-1.41l-2.34-2.3c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75z"/></svg>
-				</button>
-			</ejs-tooltip>
-			<!-- Fullstack-Generator -->
-			<ejs-tooltip #tooltip content="Fullstack-Generator">
-				<button
-					ejs-button
-					cssClass="e-small e-round"
-					[isPrimary]="true"
-					class="toolbarButton"
-					routerLink="/fullstackGenerator"
-					>
-					<svg style="margin-top: 2px; margin-right: 2px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20"><path fill="currentColor" d="M6 5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm1 0v1h6V5zM4 4v12a2 2 0 0 0 2 2h3.5a2.627 2.627 0 0 1-.449-1H6a1 1 0 0 1-1-1h4v-1H5V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v4.014c.343.018.677.056 1 .112V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2m13 5.42a6.508 6.508 0 0 0-1.12-.3A7.862 7.862 0 0 0 14.5 9c-2.485 0-4.5 1.12-4.5 2.5s2.015 2.5 4.5 2.5s4.5-1.12 4.5-2.5c0-.867-.794-1.63-2-2.08m1.168 4.722c-.99.55-2.288.858-3.668.858c-1.38 0-2.678-.309-3.668-.858a4.558 4.558 0 0 1-.832-.588v2.945c0 1.381 2.015 2.5 4.5 2.5S19 17.88 19 16.5a2959.088 2959.088 0 0 1 .001-2.946a4.54 4.54 0 0 1-.833.589"/></svg>
 				</button>
 			</ejs-tooltip>
 		</div>

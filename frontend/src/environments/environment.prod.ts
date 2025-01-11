@@ -2,11 +2,11 @@ export const environment = {
   production: true,
 
   backendProtocol: 'https',
-  backendDomain: '[APP_NAME].[CUSTOMER_NAME].photonic-codes.cloud',
+  backendDomain: 'photonic-funnel.testing.photonic-codes.cloud',
   backendPort: '',
   backendPrefix: 'api',
 
-  keycloakUrl: 'https://kc.[CUSTOMER_NAME].photonic-codes.cloud',
+  keycloakUrl: 'https://kc.testing.photonic-codes.cloud',
   keycloakRealm: '',
-  keycloakClientId: ''
-};
+  keycloakClientId: 'photonic-funnel-client'
+}

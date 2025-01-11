@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core'
-
 import { ButtonModule, CheckBoxModule, ChipListModule, SwitchModule } from '@syncfusion/ej2-angular-buttons'
 import { DatePickerModule, TimePickerModule } from '@syncfusion/ej2-angular-calendars'
 import { ColorPickerModule, TextBoxModule, SliderModule } from '@syncfusion/ej2-angular-inputs'
@@ -27,8 +26,8 @@ import { DocumentEditorContainerModule, DocumentEditorModule, PrintService, Text
 	import { AudioService, CountService, EmojiPickerService, FileManagerService, FormatPainterService, HtmlEditorService, ImageService, ImportExportService, LinkService, PasteCleanupService, QuickToolbarService, RichTextEditorAllModule, SlashMenuService, TableService, ToolbarService as ToolbarServiceRT, VideoService } from '@syncfusion/ej2-angular-richtexteditor'
 
 @NgModule({
-  exports: [
-    KanbanModule,
+	exports: [
+		KanbanModule,
 		ButtonModule, ProgressButtonModule,
 		CheckBoxModule,
 		ColorPickerModule,
@@ -37,9 +36,9 @@ import { DocumentEditorContainerModule, DocumentEditorModule, PrintService, Text
 		ScheduleModule,
 		DropDownListModule,
 		ChartModule, ChartAllModule, AccumulationChartModule, CircularGaugeModule,
-    AppBarModule, SidebarModule,
-    ListViewModule,
-    GridModule,
+		AppBarModule, SidebarModule,
+		ListViewModule,
+		GridModule,
 		TabModule,
 		MapsModule,
 		SwitchModule,
@@ -53,13 +52,13 @@ import { DocumentEditorContainerModule, DocumentEditorModule, PrintService, Text
 		FileManagerModule, FileManagerAllModule,
 		DocumentEditorContainerModule,
 		RichTextEditorAllModule
-  ],
-  providers: [
+	],
+	providers: [
 		/* For Schedule */ DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService, YearService,
 		/* For Chart */ CategoryService, LegendService, TooltipService, DataLabelService, LineSeriesService, AreaSeriesService, RangeAreaSeriesService, StepAreaSeriesService, StackingAreaSeriesService,
-                    MultiColoredAreaSeriesService, StackingStepAreaSeriesService, SplineRangeAreaSeriesService, ColumnSeriesService, SplineSeriesService, SplineAreaSeriesService,
+										MultiColoredAreaSeriesService, StackingStepAreaSeriesService, SplineRangeAreaSeriesService, ColumnSeriesService, SplineSeriesService, SplineAreaSeriesService,
 		/* For Pie and Donut */ PieSeriesService, AccumulationLegendService, AccumulationTooltipService, AccumulationDataLabelService, AccumulationAnnotationService,
-    /* For CircularGauge */ GaugeTooltipService,
+		/* For CircularGauge */ GaugeTooltipService,
 		/* For Grid */ PageService, SortService, FilterService, GroupService, ToolbarServiceGrid, ExcelExportService,
 		/* For Maps */ ZoomService,
 		/* For FileManager */ NavigationPaneService, ToolbarServiceFM, DetailsViewService,
@@ -68,6 +67,6 @@ import { DocumentEditorContainerModule, DocumentEditorModule, PrintService, Text
 										PageSetupDialogService, StyleDialogService, ListDialogService, ParagraphDialogService, BulletsAndNumberingDialogService, FontDialogService, TablePropertiesDialogService,
 										BordersAndShadingDialogService, TableOptionsDialogService, CellOptionsDialogService, StylesDialogService,
 		/* For RichTextEditor */ ToolbarServiceRT, QuickToolbarService, LinkService, ImageService, HtmlEditorService, TableService, FileManagerService, EmojiPickerService, VideoService, AudioService, FormatPainterService, PasteCleanupService, CountService, SlashMenuService, ImportExportService
-  ]
+	]
 })
 export class SyncfusionModule {}
