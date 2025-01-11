@@ -1,16 +1,4 @@
 <div *ngIf="uiEditorService.allOfType == 'richText'">
 
 	<h2>Rich-Text-Menü:</h2>
-
-	<!-- HTML -->
-	<div class="editor-tooltip"></div>
-	<ngx-monaco-editor
-		id="monacoEditor"
-		*ngIf="uiEditorService.selectedObjects[0] as selected"
-		class="editor-container"
-		[options]="editorOptions1"
-		[(ngModel)]="inputValueCode"
-		(onInit)="onInit($event, selected)"
-	>
-	</ngx-monaco-editor>
 </div>

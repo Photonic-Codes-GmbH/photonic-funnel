@@ -11,6 +11,9 @@ import { AppComponent } from './app.component'
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular'
+import { UiEditorModule } from './pages/uiEditor/uieditor.module'
+import { LayoutComponent } from './pages/uiEditor/elements/layout/layout.component'
+import { ResizeHandlesComponent } from './pages/uiEditor/elements/layout/resizable/resize-handles.component'
 
 function initializeKeycloak(keycloak: KeycloakService, configService: ConfigService) {
   return () => keycloak.init({
@@ -37,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    LayoutComponent
   ],
   imports: [
 		CoreModule,
@@ -47,6 +51,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     KeycloakAngularModule,
 		SyncfusionModule,
     AppRoutingModule,
+    UiEditorModule,
+    ResizeHandlesComponent,
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,

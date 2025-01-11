@@ -2,10 +2,9 @@ import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { SharedMenusModule } from '../../sharedMenus/sharedMenus.module'
 // import { SfAppBarComponentMenu } from '../syncfusion/appBar/appBar.menu'
+import { FormsModule } from '@angular/forms'
 import { SfButtonComponentMenu } from './button/button.menu'
 import { SfRichTextMenu } from './richText/richText.menu'
-import { FormsModule } from '@angular/forms'
-import { MonacoEditorModule } from 'ngx-monaco-editor-v2'
 // import { SfChartComponentMenu } from '../syncfusion/chart/chart.menu'
 // import { SfCheckboxComponentMenu } from '../syncfusion/checkbox/checkbox.menu'
 // import { SfDataGridComponentMenu } from '../syncfusion/dataGrid/dataGrid.menu'
@@ -44,7 +43,6 @@ const declarationsNexports = [
 		CommonModule,
 		SharedMenusModule,
 		FormsModule,
-		MonacoEditorModule.forRoot(),
   ],
 })
 

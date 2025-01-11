@@ -11,6 +11,7 @@ import { KeycloakOptionsService } from './core/services/keycloak-options.service
 
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
+import { FileManagerModule } from './mediaManager/fileManager.module'
 
 @Module({
 	imports: [
@@ -19,6 +20,7 @@ import { AppService } from './app.service'
 		CoreModule,
 		SharedModule,
 		ProjectsModule,
+		FileManagerModule
 	],
 	controllers: [
 		AppController

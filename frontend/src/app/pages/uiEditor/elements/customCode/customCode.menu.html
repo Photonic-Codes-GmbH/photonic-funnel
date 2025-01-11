@@ -1,28 +1,4 @@
 <div *ngIf="uiEditorService.allOfType == 'customCode'">
 
   <h2>Custom Code Menü:</h2>
-
-  <!-- HTML -->
-	<div class="editor-tooltip"></div>
-	<ngx-monaco-editor
-		id="monacoEditor"
-		*ngIf="uiEditorService.selectedObjects[0] as selected"
-		class="editor-container"
-		[options]="editorOptions1"
-		[(ngModel)]="inputValueHTML"
-		(onInit)="onInit($event, selected)"
-	>
-	</ngx-monaco-editor>
-
-  <!-- Style -->
-	<div class="editor-tooltip"></div>
-	<ngx-monaco-editor
-		id="monacoEditor"
-		*ngIf="uiEditorService.selectedObjects[0] as selected"
-		class="editor-container"
-		[options]="editorOptions2"
-		[(ngModel)]="inputValueStyle"
-		(onInit)="onInit2($event, selected)"
-	>
-	</ngx-monaco-editor>
 </div>
